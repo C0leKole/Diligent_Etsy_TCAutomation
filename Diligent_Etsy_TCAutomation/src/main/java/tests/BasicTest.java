@@ -1,6 +1,7 @@
 package tests;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.*;
@@ -25,15 +26,32 @@ public abstract class BasicTest {
 
     protected CartPage cartPage;
 
+    @BeforeTest
+    @Parameters("browser")
+    public void setup(String browser) throws Exception {
+
+        if (browser.equalsIgnoreCase("Edge")){
+
+            System.setProperty("webdriver.edge.driver", "src/main/resources/msedgedriver.exe");
+
+            driver = new EdgeDriver();
+
+        } else if (browser.equalsIgnoreCase("chrome")) {
+
+            System.setProperty("webdriver.chrome.driver",
+                    "src/main/resources/chromedriver.exe");
+
+            driver = new ChromeDriver();
+        } else {
+            throw new Exception("Browser is not correct");
+        }
+    }
+
 
 
     @BeforeClass
     public void beforeClass() {
 
-        System.setProperty("webdriver.chrome.driver",
-                "src/main/resources/chromedriver.exe");
-
-        driver = new ChromeDriver();
 
         driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(20));
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
