@@ -19,7 +19,7 @@ public class CartPage {
         return driver.findElement(By.xpath("//button[contains(@data-selector, 'move-to-favorites')]"));
     }
 
-    public WebElement getRemoveButton () {
+    public WebElement getRemoveButton() {
         return driver.findElement(By.xpath("//a[1][contains(@rel, 'remove')]"));
     }
 }

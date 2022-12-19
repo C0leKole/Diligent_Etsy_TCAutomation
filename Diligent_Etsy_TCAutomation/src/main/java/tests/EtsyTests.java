@@ -17,7 +17,7 @@ public class EtsyTests extends BasicTest {
     @Test(priority = 10)
     //TC01
 
-    public void userIsTryingToRegister() throws InterruptedException {
+    public void userIsTryingToRegister() {
 
         navPage.getSignInButton().click();
         registrationPage.getRegisterButton().click();
@@ -40,7 +40,7 @@ public class EtsyTests extends BasicTest {
     @Test(priority = 20)
     //TC03
 
-    public void userIsTryingTosignInWithInvalidPassword() {
+    public void userIsTryingToSignInWithInvalidPassword() {
 
         navPage.getSignInButton().click();
         signInPage.getEmailInput().sendKeys("nikola.ilic12358@gmail.com");
@@ -70,7 +70,7 @@ public class EtsyTests extends BasicTest {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("document.getElementById('price-input-3').click();");
 
-
+        searchPage.waitApplyButton();
         searchPage.getApplyButton().click();
         Thread.sleep(2000);
         driver.navigate().refresh();
@@ -101,9 +101,9 @@ public class EtsyTests extends BasicTest {
         action.moveToElement(searchPage.getArtAndCollectiblesTab()).perform();
 
 
-        searchPage.waitOilTextLink();
-        action.moveToElement(searchPage.getOilTextLink()).perform();
-        searchPage.getOilTextLink().click();
+        searchPage.waitPrintsTextLink();
+        action.moveToElement(searchPage.getPrintsTextLink()).perform();
+        searchPage.getPrintsTextLink().click();
         searchPage.waitForAllFilltersButton();
         searchPage.getAllFiltersButton().click();
         searchPage.waitCustomPriceInput();
@@ -118,8 +118,10 @@ public class EtsyTests extends BasicTest {
         js.executeScript("arguments[0].scrollIntoView();", searchPage.getShopLocationSerbia());
         js.executeScript("document.getElementById('shop-location-input-2').click();");
 
+        searchPage.waitApplyButton();
         searchPage.getApplyButton().click();
-        searchPage.getAnItemFromTheList(1).click();
+        searchPage.waitAnItemFromTheList(3);
+        searchPage.getAnItemFromTheList(3).click();
 
 
         String oldTab = driver.getWindowHandle();
@@ -130,11 +132,14 @@ public class EtsyTests extends BasicTest {
 
         searchPage.waitAddToCartButton();
         searchPage.getAddToCartButton().click();
+
+
         searchPage.getViewCartAndCheckOutButton().click();
         cartPage.getSaveForLaterButton().click();
 
         js.executeScript("arguments[0].scrollIntoView();", cartPage.getMoveToFavoritesButton());
 
+        Thread.sleep(2000);
         cartPage.getMoveToFavoritesButton().click();
 
 
@@ -156,6 +161,7 @@ public class EtsyTests extends BasicTest {
         js.executeScript("document.getElementById('special-offers-on-sale').click();");
         js.executeScript("document.getElementById('special-offers-bestseller').click();");
 
+        searchPage.waitApplyButton();
         searchPage.getApplyButton().click();
         searchPage.waitAnItemFromTheList(2);
         searchPage.getAnItemFromTheList(2).click();

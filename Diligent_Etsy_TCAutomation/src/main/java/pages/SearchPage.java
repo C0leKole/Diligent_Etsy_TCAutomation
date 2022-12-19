@@ -27,14 +27,14 @@ public class SearchPage {
                 By.xpath("//ul[contains(@role, 'menubar')]/li[6]/a")));
     }
 
-    public WebElement getOilTextLink() {
-        return driver.findElement(By.id("catnav-l4-112"));
+    public WebElement getPrintsTextLink() {
+        return driver.findElement(By.id("catnav-l3-119"));
     }
 
-    public void waitOilTextLink() {
+    public void waitPrintsTextLink() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.elementToBeClickable(
-                By.id("catnav-l4-112")));
+                By.id("catnav-l3-119")));
     }
 
     public WebElement getMinCustomPriceValue() {
@@ -77,12 +77,6 @@ public class SearchPage {
         return driver.findElement(By.partialLinkText("View cart & check out"));
     }
 
-    public void waitViewCartAndCheckOutButton() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        wait.until(ExpectedConditions.presenceOfElementLocated(
-                By.partialLinkText("View cart & check out")));
-    }
-
 
     public WebElement getAllFiltersButton() {
         return driver.findElement(By.id("search-filter-button"));
@@ -105,7 +99,7 @@ public class SearchPage {
                         " wt-mt-xs-3 wt-mb-xs-3 wt-mr-xs-3']"));
     }
 
-    public void gwaitApplyButton() {
+    public void waitApplyButton() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.presenceOfElementLocated(
                 By.xpath("//button[@class='wt-btn wt-btn--primary wt-width-full" +

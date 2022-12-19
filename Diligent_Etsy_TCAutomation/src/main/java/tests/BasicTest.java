@@ -10,7 +10,6 @@ import pages.*;
 import java.time.Duration;
 
 
-
 public abstract class BasicTest {
 
 
@@ -30,7 +29,7 @@ public abstract class BasicTest {
     @Parameters("browser")
     public void setup(String browser) throws Exception {
 
-        if (browser.equalsIgnoreCase("Edge")){
+        if (browser.equalsIgnoreCase("Edge")) {
 
             System.setProperty("webdriver.edge.driver", "src/main/resources/msedgedriver.exe");
 
@@ -46,7 +45,6 @@ public abstract class BasicTest {
             throw new Exception("Browser is not correct");
         }
     }
-
 
 
     @BeforeClass

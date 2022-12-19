@@ -16,19 +16,19 @@ public class RegistrationPage {
         this.driver = driver;
     }
 
-    public WebElement getRegisterButton () {
+    public WebElement getRegisterButton() {
         return driver.findElement(By.xpath("//button[contains(@class, 'register-header-action')]"));
     }
 
-    public WebElement getFirstNameInput () {
+    public WebElement getFirstNameInput() {
         return driver.findElement(By.id("join_neu_first_name_field"));
     }
 
-    public WebElement getSubmitRegistrationButton () {
+    public WebElement getSubmitRegistrationButton() {
         return driver.findElement(By.xpath("//button[contains(@value, 'register')]"));
     }
 
-    public void waitRegistrationPageElementsToBeClickable () {
+    public void waitRegistrationPageElementsToBeClickable() {
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.elementToBeClickable(
                 By.id("join_neu_first_name_field")));

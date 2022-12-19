@@ -14,7 +14,8 @@ public class NavPage {
     public NavPage(WebDriver driver) {
         this.driver = driver;
     }
-    public WebElement getSignInButton () {
+
+    public WebElement getSignInButton() {
         return driver.findElement(By.xpath("//button[contains(@class, 'signin-header-action')]"));
     }
 
@@ -22,17 +23,14 @@ public class NavPage {
         return driver.findElement(By.id("global-enhancements-search-query"));
     }
 
-    public WebElement getProfileIcon () {
+    public WebElement getProfileIcon() {
         return driver.findElement(By.className("wt-menu__trigger wt-btn wt-btn--transparent" +
                 " wt-tooltip__trigger wt-btn--icon wt-pr-xs-1 wt-display-inline-flex-xs reduced-margin-xs"));
     }
 
-    public WebElement getLogoutButton () {
+    public WebElement getLogoutButton() {
         return driver.findElement(By.linkText("Sign out"));
     }
-
-
-
 
 
 }
