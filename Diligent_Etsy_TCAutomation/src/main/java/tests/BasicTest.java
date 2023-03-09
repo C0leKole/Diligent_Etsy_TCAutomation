@@ -29,7 +29,7 @@ public abstract class BasicTest {
     @Parameters("browser")
     public void setup(String browser) throws Exception {
 
-        if (browser.equalsIgnoreCase("Edge")) {
+        if (browser.equalsIgnoreCase("edge")) {
 
             System.setProperty("webdriver.edge.driver", "src/main/resources/msedgedriver.exe");
 
